@@ -9,11 +9,12 @@ app = Flask(__name__)
 #def index():
 #	return "<h1> HelloWorld! </h1>"
 
-def index():
+def index(): 
+	stuff = "This is<p> Bold </p>"
 	return render_template("index.html")
 
 # localhost:5000/user/Manfred
 @app.route('/user/<name>')
 
 def user(name):
-	return	"<h1>Hello {}!!!</h1>".format(name) 
+	return render_template("user.html", user_name=name)  
