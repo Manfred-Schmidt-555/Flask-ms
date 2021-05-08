@@ -3,3 +3,10 @@
 <p>This is my first webpage</p>
 
 <p>My Name is {{ first_name }}</p>
+
+<p>{{ stuff | safe}}</p>
+
+<h2>Favorite Pizza:</h2>
+{% for topping in favorite_pizza %}
+	{{ topping}}<br>
+{% endfor %}
