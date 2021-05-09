@@ -1,12 +1,18 @@
-<h1>Hello World !</h1>
+{% extends 'base.html' %}
 
-<p>This is my first webpage</p>
+{% block content %}
 
-<p>My Name is {{ first_name }}</p>
+	<h1>Hello World !</h1>
 
-<p>{{ stuff | safe}}</p>
+	<p>This is my first webpage</p>
 
-<h2>Favorite Pizza:</h2>
-{% for topping in favorite_pizza %}
-	{{ topping}}<br>
-{% endfor %}
+	<p>My Name is {{ first_name }}</p>
+
+	<p>{{ stuff | safe}}</p>
+
+	<h2>Favorite Pizza:</h2>
+	{% for topping in favorite_pizza %}
+		{{ topping}}<br>
+	{% endfor %}
+
+{% endblock %}
