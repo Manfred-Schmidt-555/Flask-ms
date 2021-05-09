@@ -16,7 +16,7 @@ def index():
 	# "list"  einführen
 	favorite_pizza = ["pepperoni", "tomato", "mushroom", 42]
 
-
+	# ein Kommentar
 	# so, hier verweise ich auf index.html in templates
 	# und kann Werte zuweisen "first_namw, stuff"
 	# in der *.html Daei kann ich "Filter" setzen: "capitalize, lower,…""
