@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for message in get_flashed_messages() %}
+	<!-- das "fade" sorgt für ein sanfftes Ausblenden des Feldes -->
+	<div class="alert alert-dark alert-dismissible fade show" role="alert">
+		<!-- ich kann vor die message noch z.B. die Variable "name" einfügen -->
+		Hey {{ name }} - {{ message }}
+	  	<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+
+{% if name%}
+	<h1>Hello {{ name }} !!</h1>
+{% else %}	
+	<h1>What´s your name</h1>
+	<br/> 
+	<form method="POST">
+		<!-- jetzt kommen Formatierungen via Bootstrap -->
+		{{ form.hidden_tag() }}
+
+		{{ form.name.label(
+			class="form-label") }}
+
+		{{ form.name(
+			class="form-control") }}
+		<br/>
+		{{ form.submit(
+			class="btn btn-secondary") }}
+
+	</form>
+
+{% endif%}		
+
+{% endblock %} 
