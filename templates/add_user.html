@@ -1,0 +1,84 @@
+add{% extends 'base.html' %}
+
+{% block content %}
+
+{% for message in get_flashed_messages() %}
+	<!-- das "fade" sorgt für ein sanftes Ausblenden des Feldes -->
+	<div class="alert alert-dark alert-dismissible fade show" role="alert">
+		<!-- ich kann vor die message noch z.B. die Variable "name" einfügen -->
+		Hey {{ name }} - {{ message }}
+	  	<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+
+
+{% if name%}
+	<h1>User Added</h1>
+	<br/><br/><br/>
+
+<!-- begin table -->
+<table class="table table-hover table-bordered table-striped">
+{% for our_user in our_users %}
+	<tr> <!-- table row open -->
+	<td> <!-- table data open -->
+	{{ our_user.id}}. {{ our_user.name}} - {{ our_user.email }}
+	</td> <!-- table data close -->
+	</tr> <!-- table row close -->
+{% endfor %}	
+</table>
+<!-- end table -->
+	
+	 
+{% else %}	
+	<h1>User List:</h1>
+	<br/> 
+
+<!-- begin regular shadow von Bootstrap -->
+<div class="shadow p-3 mb-5 bg-body rounded"></div>
+
+<!-- begin FORM -->
+<form method="POST"> 
+		<!-- jetzt kommen Formatierungen via Bootstrap -->
+
+
+		{{ form.hidden_tag() }}
+
+		{{ form.name.label(
+			class="form-label") }}
+
+		{{ form.name(
+			class="form-control") }} 
+
+		{{ form.email.label(
+			class="form-label") }}
+
+		{{ form.email(
+			class="form-control") }}
+  
+		<br/>
+		{{ form.submit(
+			class="btn btn-secondary") }}
+	</form>
+<!-- end form -->
+
+<!-- end regular shadow von Bootstrap -->
+</div>
+
+<br/><br/><br/>  
+
+<!-- begin table -->
+<table class="table table-hover table-bordered table-striped">
+{% for our_user in our_users %}
+	<tr> <!-- table row open -->
+	<td> <!-- table data open -->
+	{{ our_user.id}}. {{ our_user.name}} - {{ our_user.email }}
+	</td> <!-- table data close -->
+	</tr> <!-- table row close -->
+{% endfor %}	
+
+<!-- end table -->
+</table>
+	
+{% endif%}		
+
+{% endblock %} 

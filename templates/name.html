@@ -3,7 +3,7 @@
 {% block content %}
 
 {% for message in get_flashed_messages() %}
-	<!-- das "fade" sorgt für ein sanfftes Ausblenden des Feldes -->
+	<!-- das "fade" sorgt für ein sanftes Ausblenden des Feldes -->
 	<div class="alert alert-dark alert-dismissible fade show" role="alert">
 		<!-- ich kann vor die message noch z.B. die Variable "name" einfügen -->
 		Hey {{ name }} - {{ message }}
@@ -11,8 +11,20 @@
 </div>
 {% endfor %}
 
+
 {% if name%}
 	<h1>Hello {{ name }} !!</h1>
+	<br/>
+	<img src="{{ url_for('static', filename='images/2021-Ostern.jpg')}}"
+	width=250>
+	<br/><br/></img>
+	
+
+	<p id="demo">
+	<script src="{{ url_for('static', 
+	filename='js/myfile.js') }}"></script>
+	</p>
+	 
 {% else %}	
 	<h1>What´s your name</h1>
 	<br/> 

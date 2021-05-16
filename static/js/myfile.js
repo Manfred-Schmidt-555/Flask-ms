@@ -1,0 +1,1 @@
+ document.getElementById('demo').innerHTML = "Dies wurde erstellt mit Java Script";
